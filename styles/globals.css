@@ -1,0 +1,117 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* * {
+    cursor: url('/cursor.png') 16 16, auto !important;
+} */
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+button,
+a,
+/* .custom-cursor {
+    cursor: url('/cursor.png') 16 16, auto;
+} */
+
+.cursor-click {
+    animation: clickPulse 0.2s ease-out;
+}
+
+/* @keyframes clickPulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(0.85);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+} */
+
+@layer base {
+
+    html,
+    body {
+        @apply m-0 p-0 box-border overflow-x-hidden;
+    }
+}
+
+/* styles/globals.css */
+@font-face {
+    font-family: 'Poppins';
+    src: url('/fonts/Poppins-Regular.ttf') format('truetype');
+    font-weight: 100 900;
+    /* variable weight range */
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('/fonts/Poppins-Italic.ttf') format('truetype');
+    font-weight: 100 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+.prose p {
+    margin-bottom: 1.25rem;
+    /* extra space for paragraphs */
+}
+
+.prose h2 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.quill-content h1 {
+    font-size: 1.5rem;
+    /* Tailwind: text-2xl */
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+}
+
+.quill-content h2 {
+    font-size: 1.25rem;
+    /* Tailwind: text-xl */
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.quill-content p {
+    /* margin-bottom: 1rem; */
+    line-height: 1.75rem;
+    /* Tailwind: leading-relaxed */
+}
+
+.quill-content ul {
+    list-style-type: disc;
+    padding-left: 1.25rem;
+    /* Tailwind: pl-5 */
+    /* margin-bottom: 1rem; */
+}
+
+.quill-content ol {
+    list-style-type: decimal;
+    padding-left: 1.25rem;
+    /* margin-bottom: 1rem; */
+}
+
+.quill-content li {
+    /* margin-bottom: 0.5rem; */
+    line-height: 1.5rem;
+}
+
+.quill-content strong {
+    font-weight: 600;
+}
+
+.quill-content span {
+    background-color: transparent !important;
+}

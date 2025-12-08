@@ -1,0 +1,41 @@
+name: Deploy Arupadai Naturals App via SSH
+
+on:
+  push:
+    branches:
+      - production
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Setup SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
+          ssh-keyscan 31.97.63.16 >> ~/.ssh/known_hosts
+
+      - name: Deploy to Server
+        run: | 
+         ssh -o StrictHostKeyChecking=no root@31.97.63.16 <<EOF
+            set -e  # Stop on errors
+            cd /var/www/gubera_sites/Arupadai_Naturals_Website
+             # Ensure remote is using SSH
+            git remote set-url origin git@github.com:Gubera369/Arupadai_Naturals_Website.git
+            # Set pull strategy
+            git config pull.rebase false 
+            git pull origin production
+            npm install
+            npm run build
+            pm2 reload Arupadai_Naturals_Website
+         EOF
+
+
+         
+         
