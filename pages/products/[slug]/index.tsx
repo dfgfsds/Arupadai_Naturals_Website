@@ -39,7 +39,9 @@ const SingleProductPage = () => {
     const { cartItem }: any = useCartItem();
     const { vendorId } = useVendor();
     const queryClient = useQueryClient();
-    const params = useParams();
+    // const params = useParams();
+    // const { params } = useParams<any>() ?? {};
+      const params = useParams();
     const slug = params?.slug;
 
     useEffect(() => {
