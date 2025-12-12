@@ -375,7 +375,7 @@ const CheckoutDrawer = ({ isOpen, onClose, subtotal }: CheckoutSidebarProps) => 
 
                     )}
                     {/* Payment Method */}
-                    <div className="mb-4">
+                    {/* <div className="mb-4">
                         <label className="block text-black mb-2 font-medium text-sm font-squares">Payment Method</label>
                         <select
                             value={paymentMethod}
@@ -385,7 +385,7 @@ const CheckoutDrawer = ({ isOpen, onClose, subtotal }: CheckoutSidebarProps) => 
                             <option value="">Prepaid</option>
                             <option value="cod">Cash on Delivery (COD)</option>
                         </select>
-                    </div>
+                    </div> */}
 
                     {getAppliedCouponData?.data?.data?.applied_coupons?.length ? (
                         <>
