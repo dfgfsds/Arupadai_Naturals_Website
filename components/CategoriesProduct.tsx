@@ -291,7 +291,9 @@ import { slugConvert } from "@/lib/utils";
 
 export default function CategoriesBasedProduct() {
     const { categories, isLoading }: any = useCategories();
-    const { id } = useParams();
+    // const { id } = useParams() ?? {};
+    const params = useParams();
+    const id = params?.id;
     const [getUserId, setUserId] = useState<string | null>(null);
     const [getCartId, setCartId] = useState<string | null>(null);
     const [getUserName, setUserName] = useState<string | null>(null);

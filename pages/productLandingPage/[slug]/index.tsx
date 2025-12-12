@@ -27,8 +27,9 @@ import Script from "next/script";
 
 export default function ProductLandingPage() {
     const router = useRouter();
-    const params = useParams();
-
+    // const params = useParams();
+    // const { params } = useParams<any>() ?? {};
+      const params = useParams();
     const slug = params?.slug;
     const { products, isAuthenticated, isLoading }: any = useProducts();
     const queryClient = useQueryClient();
